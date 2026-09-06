@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T13:31:30.412Z",
+  "generated_at": "2026-09-06T13:32:03.848Z",
   "source": "github-actions",
   "posts": [
     {
@@ -8,12 +8,12 @@
       "body": "<!-- AZUCAR_POST -->\n## 💌 Mensaje para Azucar\n\n<!-- AZUCAR_MESSAGE_START -->\nChe no te olvides de que se te quiere diabetes,sos un exitoso y que en tracen todos te queremos porque revives el server\n<!-- AZUCAR_MESSAGE_END -->\n\n## 🎨 Dibujo / imagen (opcional)\n\nArrastrá, pegá o elegí tu dibujo/imagen debajo de esta línea antes de publicar.\n\n<!-- La página TEAM AZUCAR leerá automáticamente este aporte. -->",
       "html_url": "https://github.com/inodoroz12-crypto/ParaAZUCAR/issues/7",
       "created_at": "2026-09-06T13:31:21Z",
-      "updated_at": "2026-09-06T13:31:21Z",
+      "updated_at": "2026-09-06T13:31:55Z",
       "user": {
         "login": "lumie53672",
         "avatar_url": "https://avatars.githubusercontent.com/u/325649808?v=4"
       },
-      "comments": 0,
+      "comments": 1,
       "reactions": {
         "total_count": 0,
         "+1": 0,
@@ -25,7 +25,30 @@
         "rocket": 0,
         "eyes": 0
       },
-      "replies": []
+      "replies": [
+        {
+          "id": 5559552203,
+          "body": "Te queremos diabetes y nunca estarás solo  azúcar ",
+          "html_url": "https://github.com/inodoroz12-crypto/ParaAZUCAR/issues/7#issuecomment-5559552203",
+          "created_at": "2026-09-06T13:31:55Z",
+          "updated_at": "2026-09-06T13:31:55Z",
+          "user": {
+            "login": "lumie53672",
+            "avatar_url": "https://avatars.githubusercontent.com/u/325649808?v=4"
+          },
+          "reactions": {
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          }
+        }
+      ]
     },
     {
       "number": 5,
