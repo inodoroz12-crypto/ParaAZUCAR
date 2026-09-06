@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#39c5a3">
   <meta name="description" content="Una página del grupo para Jonathan, nuestro Azucar.">
+  <link rel="icon" type="image/png" href="assets/team-azucar-logo.png">
+  <link rel="apple-touch-icon" href="assets/team-azucar-logo.png">
   <title>AZUCAR — Te amamos Jonathan</title>
 
   <style>
@@ -103,15 +105,30 @@
     }
 
     .logo-mark{
-      width:42px;
-      aspect-ratio:1;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      border:3px solid var(--ink);
-      background:linear-gradient(135deg,var(--mint),var(--cyan));
-      box-shadow:3px 3px 0 var(--yellow);
-      font-size:23px;
+      width:58px;
+      height:58px;
+      object-fit:contain;
+      flex:0 0 auto;
+      filter:drop-shadow(3px 4px 0 rgba(39,48,77,.18));
+    }
+
+    .logo-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .logo-text strong{
+      font-size:15px;
+      letter-spacing:.06em;
+    }
+
+    .logo-text small{
+      margin-top:5px;
+      color:var(--pink-dark);
+      font-size:9px;
+      font-weight:1000;
+      letter-spacing:.08em;
     }
 
     .nav{
@@ -585,6 +602,14 @@
       box-shadow:0 12px 0 var(--shadow);
     }
 
+    .final-logo{
+      width:118px;
+      height:118px;
+      object-fit:contain;
+      margin:0 auto 12px;
+      filter:drop-shadow(5px 6px 0 rgba(48,52,75,.18));
+    }
+
     .final .big-love{
       font-size:clamp(35px,7vw,78px);
       line-height:.9;
@@ -890,6 +915,113 @@
       text-decoration:none;
     }
 
+    .wall-media img,
+    .wall-media video{
+      width:100%;
+      max-height:440px;
+      object-fit:contain;
+      background:#f0f5f3;
+      border:2px solid var(--ink);
+      border-radius:13px;
+    }
+
+    .wall-actions{
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .wall-action{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      border:2px solid var(--ink);
+      border-radius:999px;
+      padding:6px 9px;
+      background:#fff;
+      color:var(--ink)!important;
+      text-decoration:none!important;
+      box-shadow:2px 2px 0 rgba(48,52,75,.22);
+      font-size:11px;
+      font-weight:1000;
+    }
+
+    .wall-action.like{
+      background:#fff0f6;
+      color:var(--pink-dark)!important;
+    }
+
+    .wall-action:hover{
+      transform:translateY(-1px);
+      background:var(--yellow);
+    }
+
+    .wall-replies{
+      margin:0 12px 12px;
+      padding:10px;
+      border:2px dashed #c5cad7;
+      border-radius:15px;
+      background:#fbfcff;
+    }
+
+    .wall-replies-title{
+      margin:0 0 8px;
+      font-size:12px;
+      font-weight:1000;
+      color:#686f84;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .wall-reply{
+      padding:10px 8px;
+      border-top:1px solid #dfe2ea;
+    }
+
+    .wall-reply:first-of-type{
+      border-top:0;
+    }
+
+    .wall-reply-head{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:7px;
+      font-size:11px;
+      color:#6e7487;
+      font-weight:850;
+    }
+
+    .wall-reply-head img{
+      width:27px;
+      height:27px;
+      border-radius:50%;
+      border:1px solid var(--ink);
+    }
+
+    .wall-reply-text{
+      margin:0 0 8px;
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+      line-height:1.48;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .wall-reply .wall-media{
+      padding:0;
+      margin-top:7px;
+    }
+
+    .reaction-help{
+      width:100%;
+      color:#777d91;
+      font-size:10px;
+      font-weight:750;
+      line-height:1.35;
+    }
+
     .wall-empty,
     .wall-error,
     .wall-loading{
@@ -937,8 +1069,8 @@
   <main class="page">
     <header class="gamebar">
       <div class="logo">
-        <span class="logo-mark">★</span>
-        <span>TEAM AZUCAR</span>
+        <img class="logo-mark" src="assets/team-azucar-logo.png" alt="Logo Team Azucar">
+        <span class="logo-text"><strong>TEAM AZUCAR</strong><small>JONATHAN SUPPORT CLUB</small></span>
       </div>
       <nav class="nav">
         <a href="#jonathan">Jonathan</a>
@@ -1195,6 +1327,7 @@
     </section>
 
     <section class="final">
+      <img class="final-logo" src="assets/team-azucar-logo.png" alt="Team Azucar">
       <div class="big-love">JONATHAN,<br>TE AMAMOS ♥</div>
       <p>
         De parte de todo el grupo. Esta no es la versión final: es el comienzo.
@@ -1361,16 +1494,68 @@
         .trim();
     }
 
-    function extractImages(body){
-      const images = [];
-      if(!body) return images;
-
-      const mdImage = /!\[[^\]]*]\((https?:\/\/[^)\s]+)(?:\s+"[^"]*")?\)/g;
-      let match;
-      while((match = mdImage.exec(body)) !== null){
-        if(!images.includes(match[1])) images.push(match[1]);
+    function addUniqueMedia(list, type, src){
+      if(!src) return;
+      const clean = src.replace(/&amp;/g, "&").trim();
+      if(!/^https?:\/\//i.test(clean)) return;
+      if(!list.some(item => item.src === clean)){
+        list.push({ type, src: clean });
       }
-      return images.slice(0, 8);
+    }
+
+    function extractMedia(body){
+      const media = [];
+      if(!body) return media;
+
+      let match;
+
+      // Markdown: ![texto](URL)
+      const mdImage = /!\[[^\]]*]\((https?:\/\/[^)\s]+)(?:\s+"[^"]*")?\)/gi;
+      while((match = mdImage.exec(body)) !== null){
+        addUniqueMedia(media, "image", match[1]);
+      }
+
+      // GitHub actualmente suele guardar adjuntos como HTML <img ...>.
+      const htmlImage = /<img\b[^>]*?\bsrc=["']([^"']+)["'][^>]*>/gi;
+      while((match = htmlImage.exec(body)) !== null){
+        addUniqueMedia(media, "image", match[1]);
+      }
+
+      // Videos/MP4/WebM subidos como HTML.
+      const htmlVideo = /<(?:video|source)\b[^>]*?\bsrc=["']([^"']+)["'][^>]*>/gi;
+      while((match = htmlVideo.exec(body)) !== null){
+        addUniqueMedia(media, "video", match[1]);
+      }
+
+      // URLs directas de GIF/imágenes/video pegadas a mano.
+      const bareUrl = /(https?:\/\/[^\s<>"')\]]+)/gi;
+      while((match = bareUrl.exec(body)) !== null){
+        const url = match[1];
+        if(/\.(?:mp4|webm|mov)(?:\?|$)/i.test(url)){
+          addUniqueMedia(media, "video", url);
+        }else if(
+          /\.(?:gif|png|jpe?g|webp)(?:\?|$)/i.test(url) ||
+          /giphy\.com|tenor\.com|user-attachments\/assets\//i.test(url)
+        ){
+          addUniqueMedia(media, "image", url);
+        }
+      }
+
+      return media.slice(0, 12);
+    }
+
+    function stripMediaMarkup(body){
+      if(!body) return "";
+      return body
+        .replace(/<!--[\s\S]*?-->/g, "")
+        .replace(/!\[[^\]]*]\([^)]+\)/g, "")
+        .replace(/<img\b[^>]*>/gi, "")
+        .replace(/<(?:video|source)\b[^>]*>[\s\S]*?<\/video>/gi, "")
+        .replace(/<(?:video|source)\b[^>]*>/gi, "")
+        .replace(/<\/?(?:p|div|br|details|summary)[^>]*>/gi, "\n")
+        .replace(/<[^>]+>/g, "")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
     }
 
     function formatDate(iso){
@@ -1381,6 +1566,113 @@
         }).format(new Date(iso));
       }catch{
         return new Date(iso).toLocaleString();
+      }
+    }
+
+    function appendMedia(container, items, altPrefix="Imagen para Azucar"){
+      if(!items.length) return;
+
+      const media = document.createElement("div");
+      media.className = "wall-media";
+
+      items.forEach((item, index) => {
+        let el;
+        if(item.type === "video"){
+          el = document.createElement("video");
+          el.controls = true;
+          el.muted = true;
+          el.loop = true;
+          el.playsInline = true;
+          el.preload = "metadata";
+          el.src = item.src;
+        }else{
+          el = document.createElement("img");
+          el.loading = "lazy";
+          el.alt = `${altPrefix} ${index + 1}`;
+          el.src = item.src;
+        }
+        el.onerror = () => el.remove();
+        media.appendChild(el);
+      });
+
+      container.appendChild(media);
+    }
+
+    async function appendReplies(issue, card){
+      if(!repoInfo || !issue.comments) return;
+
+      try{
+        const url =
+          `https://api.github.com/repos/${repoInfo.full}/issues/${issue.number}/comments` +
+          `?per_page=100`;
+
+        const response = await fetch(url, {
+          cache:"no-store",
+          headers:{
+            "Accept":"application/vnd.github+json",
+            "X-GitHub-Api-Version":"2022-11-28"
+          }
+        });
+        if(!response.ok) return;
+
+        const comments = await response.json();
+        if(!comments.length) return;
+
+        const box = document.createElement("div");
+        box.className = "wall-replies";
+
+        const title = document.createElement("div");
+        title.className = "wall-replies-title";
+        title.textContent =
+          `${comments.length} ${comments.length === 1 ? "respuesta" : "respuestas"} del grupo`;
+        box.appendChild(title);
+
+        comments.forEach(comment => {
+          const reply = document.createElement("div");
+          reply.className = "wall-reply";
+
+          const head = document.createElement("div");
+          head.className = "wall-reply-head";
+
+          const avatar = document.createElement("img");
+          avatar.loading = "lazy";
+          avatar.src = comment.user?.avatar_url || "";
+          avatar.alt = "";
+
+          const info = document.createElement("span");
+          info.textContent =
+            `@${comment.user?.login || "github"} · ${formatDate(comment.created_at)}`;
+
+          head.append(avatar, info);
+          reply.appendChild(head);
+
+          const plain = stripMediaMarkup(comment.body);
+          if(plain){
+            const p = document.createElement("p");
+            p.className = "wall-reply-text";
+            p.textContent = plain;
+            reply.appendChild(p);
+          }
+
+          appendMedia(reply, extractMedia(comment.body), "Adjunto de respuesta");
+
+          const r = comment.reactions || {};
+          if(r.total_count){
+            const small = document.createElement("div");
+            small.className = "wall-meta";
+            small.textContent =
+              `Reacciones: ${r.total_count} · ♥ ${r.heart || 0} · 👍 ${r["+1"] || 0}`;
+            reply.appendChild(small);
+          }
+
+          box.appendChild(reply);
+        });
+
+        // Las respuestas aparecen antes del pie/botones de la tarjeta.
+        const foot = card.querySelector(".wall-card-foot");
+        card.insertBefore(box, foot || null);
+      }catch{
+        // Si GitHub limita una consulta, el mensaje principal sigue funcionando.
       }
     }
 
@@ -1422,46 +1714,56 @@
       message.textContent = extractMessage(issue.body) || "♥ Mensaje para Azucar";
 
       card.append(head, message);
-
-      const images = extractImages(issue.body);
-      if(images.length){
-        const media = document.createElement("div");
-        media.className = "wall-media";
-
-        images.forEach((src, index) => {
-          const img = document.createElement("img");
-          img.loading = "lazy";
-          img.alt = `Dibujo o imagen para Azucar ${index + 1}`;
-          img.src = src;
-          img.onerror = () => img.remove();
-          media.appendChild(img);
-        });
-
-        card.appendChild(media);
-      }
+      appendMedia(card, extractMedia(issue.body), "Dibujo o GIF para Azucar");
 
       const foot = document.createElement("div");
       foot.className = "wall-card-foot";
 
       const reactions = issue.reactions || {};
+      const totalReactions = reactions.total_count || 0;
       const heartCount = reactions.heart || 0;
+      const thumbsCount = reactions["+1"] || 0;
       const comments = issue.comments || 0;
 
       const stats = document.createElement("span");
       stats.textContent =
-        `♥ ${heartCount} · 💬 ${comments} ${comments === 1 ? "respuesta" : "respuestas"}`;
+        `💖 ${totalReactions} reacciones · ♥ ${heartCount} · 👍 ${thumbsCount} · 💬 ${comments}`;
 
-      const link = document.createElement("a");
-      link.href = issue.html_url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "VER / RESPONDER EN GITHUB ↗";
+      const actions = document.createElement("div");
+      actions.className = "wall-actions";
 
-      foot.append(stats, link);
+      const like = document.createElement("a");
+      like.className = "wall-action like";
+      like.href = issue.html_url;
+      like.target = "_blank";
+      like.rel = "noopener noreferrer";
+      like.textContent = "♥ REACCIONAR EN GITHUB (SE GUARDA)";
+      like.title = "La reacción se guarda en GitHub y luego aparece en este muro.";
+
+      const reply = document.createElement("a");
+      reply.className = "wall-action";
+      reply.href = issue.html_url + "#new_comment_field";
+      reply.target = "_blank";
+      reply.rel = "noopener noreferrer";
+      reply.textContent = "💬 RESPONDER / GIF";
+
+      actions.append(like, reply);
+      foot.append(stats, actions);
+
+      const help = document.createElement("div");
+      help.className = "reaction-help";
+      help.textContent =
+        "Para que el ♥ sea global y quede guardado: abrí GitHub, tocá «Add reaction» y elegí ❤️. Después volvé y tocá «Actualizar muro».";
+      foot.appendChild(help);
+
       card.appendChild(foot);
+
+      // Carga respuestas reales (texto, imágenes y GIFs) debajo del mensaje.
+      appendReplies(issue, card);
 
       return card;
     }
+
 
     async function loadAzucarWall(){
       if(!repoInfo){
@@ -1484,7 +1786,13 @@
           `https://api.github.com/repos/${repoInfo.full}/issues` +
           `?state=open&per_page=100&sort=created&direction=desc`;
 
-        const response = await fetch(api, { cache:"no-store" });
+        const response = await fetch(api, {
+          cache:"no-store",
+          headers:{
+            "Accept":"application/vnd.github+json",
+            "X-GitHub-Api-Version":"2022-11-28"
+          }
+        });
 
         if(!response.ok){
           if(response.status === 404){
@@ -1535,6 +1843,7 @@
 
     refreshWall.addEventListener("click", loadAzucarWall);
     loadAzucarWall();
+    setInterval(loadAzucarWall, 300000);
 
 
     const loveButton=document.getElementById("loveButton");
