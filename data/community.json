@@ -1,7 +1,32 @@
 {
-  "generated_at": "2026-09-06T05:10:00Z",
-  "source": "bootstrap",
+  "generated_at": "2026-09-06T09:21:25.068Z",
+  "source": "github-actions",
   "posts": [
+    {
+      "number": 4,
+      "title": "[AZUCAR] Cule",
+      "body": "<!-- AZUCAR_POST -->\n## 💌 Mensaje para Azucar\n\n<!-- AZUCAR_MESSAGE_START -->\nDuele bastante no poder hacer algo por ti a la distancia, sé que necesitas algo más que esto, pero al menos queremos que sepas que no estás solo y que realmente hay cabros que se preocupan por ti y te quieren de manera genuina, no pierdas de vista lo que tienes, aun te queda mucho camino.\n\nTe deseo todo lo mejor del mundo ❤️✌️\n<!-- AZUCAR_MESSAGE_END -->\n\n## 🎨 Dibujo / imagen (opcional)\n\nArrastrá, pegá o elegí tu dibujo/imagen debajo de esta línea antes de publicar.\n<img width=\"1080\" height=\"1080\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/6e19aafd-d314-4755-985d-fcd3294d539d\" />\n<!-- La página TEAM AZUCAR leerá automáticamente este aporte. -->",
+      "html_url": "https://github.com/inodoroz12-crypto/ParaAZUCAR/issues/4",
+      "created_at": "2026-09-06T09:21:16Z",
+      "updated_at": "2026-09-06T09:21:16Z",
+      "user": {
+        "login": "Culette",
+        "avatar_url": "https://avatars.githubusercontent.com/u/325557839?v=4"
+      },
+      "comments": 0,
+      "reactions": {
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "replies": []
+    },
     {
       "number": 3,
       "title": "[AZUCAR] el papu misterioso",
@@ -14,7 +39,17 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/325006868?v=4"
       },
       "comments": 0,
-      "reactions": {"total_count": 0, "+1": 0, "-1": 0, "laugh": 0, "hooray": 0, "confused": 0, "heart": 0, "rocket": 0, "eyes": 0},
+      "reactions": {
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
       "replies": []
     },
     {
@@ -29,7 +64,17 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/325499062?v=4"
       },
       "comments": 0,
-      "reactions": {"total_count": 0, "+1": 0, "-1": 0, "laugh": 0, "hooray": 0, "confused": 0, "heart": 0, "rocket": 0, "eyes": 0},
+      "reactions": {
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
       "replies": []
     },
     {
@@ -44,7 +89,17 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/325006868?v=4"
       },
       "comments": 0,
-      "reactions": {"total_count": 0, "+1": 0, "-1": 0, "laugh": 0, "hooray": 0, "confused": 0, "heart": 0, "rocket": 0, "eyes": 0},
+      "reactions": {
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
       "replies": []
     }
   ]
