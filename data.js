@@ -1,9 +1,5 @@
-/* TEAM AZUCAR — integrantes + muro comunitario sin límite de API */
-const integrantes = [
-  { nombre:"Próximamente", frase:"Acá va a aparecer la frase de un integrante para Azucar.", imagen:"", detalle:"Dibujo + mensaje" },
-  { nombre:"Próximamente", frase:"Estamos juntando dibujos y palabras para llenar esta sección.", imagen:"", detalle:"Dibujo + mensaje" },
-  { nombre:"Próximamente", frase:"Cada integrante va a tener su propio rincón para Jonathan.", imagen:"", detalle:"Dibujo + mensaje" }
-];
+/* TEAM AZUCAR — muro comunitario */
+const integrantes = [];
 
 (() => {
   const realFetch = window.fetch.bind(window);
@@ -73,7 +69,7 @@ const integrantes = [
     box.innerHTML=`
       <div class="section-head">
         <div><div class="eyebrow">Fan Art / Community Gallery</div><h2>🎨 Dibujos y GIFs del grupo</h2></div>
-        <p class="section-note">Todo dibujo, imagen o GIF adjuntado en un mensaje aparece también acá para Jonathan.</p>
+        <p class="section-note">Los dibujos, imágenes, GIFs y videos del grupo quedan reunidos acá para Jonathan.</p>
       </div>
       <div class="gallery" id="communityGallery"><div class="wall-loading">Cargando dibujos...</div></div>`;
     muro.appendChild(box); return box.querySelector("#communityGallery");

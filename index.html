@@ -236,13 +236,15 @@
 
     .hero-visual{
       position:relative;
-      display:grid;
-      place-items:center;
-      min-height:440px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-height:560px;
     }
 
     .main-gif{
-      width:min(390px,100%);
+      width:min(420px,100%);
       aspect-ratio:1/1;
       object-fit:cover;
       border:5px solid var(--ink);
@@ -253,16 +255,18 @@
     }
 
     .stat-card{
-      position:absolute;
-      left:-14px;
-      bottom:25px;
-      width:min(280px,80%);
+      position:relative;
+      left:auto;
+      bottom:auto;
+      width:min(360px,94%);
+      margin-top:22px;
       background:#fff;
       border:3px solid var(--ink);
       border-radius:18px;
       box-shadow:7px 7px 0 var(--yellow);
       padding:14px;
-      transform:rotate(-2deg);
+      transform:rotate(-1deg);
+      z-index:2;
     }
 
     .stat-title{
@@ -671,7 +675,7 @@
       .traits{grid-template-columns:1fr}
       .hero{padding:22px 16px}
       .main-gif{width:92%}
-      .stat-card{left:4px}
+      .stat-card{left:auto;width:94%;margin-top:18px}
       .nav{display:none}
     }
 
@@ -1050,6 +1054,95 @@
       font-weight:700;
     }
 
+
+    /* Galería automática creada desde dibujos/GIFs del muro */
+    .community-gallery-block{
+      margin-top:26px;
+      padding:20px;
+      border:3px solid var(--ink);
+      border-radius:24px;
+      background:rgba(255,255,255,.78);
+      box-shadow:8px 8px 0 rgba(255,119,174,.28);
+    }
+
+    .community-gallery-top{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-end;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .community-gallery-top h3{
+      margin:0;
+      font-size:clamp(23px,4vw,34px);
+      font-style:italic;
+      text-transform:uppercase;
+    }
+
+    .community-gallery-top p{
+      margin:0;
+      max-width:520px;
+      font-size:13px;
+      line-height:1.5;
+      font-weight:750;
+    }
+
+    .community-gallery{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .community-media-card{
+      overflow:hidden;
+      border:3px solid var(--ink);
+      border-radius:18px;
+      background:#fff;
+      box-shadow:6px 6px 0 rgba(89,213,180,.28);
+    }
+
+    .community-media-frame{
+      display:block;
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      background:#eef6f3;
+      border:0;
+      border-bottom:3px solid var(--ink);
+    }
+
+    .community-media-caption{
+      padding:10px 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:center;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .community-media-caption a{
+      color:var(--pink-dark);
+      text-decoration:none;
+    }
+
+    .wall-sync-note{
+      margin-top:7px;
+      color:#74798e;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    @media(max-width:740px){
+      .community-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media(max-width:470px){
+      .community-gallery{grid-template-columns:1fr}
+    }
+
     @media(max-width:930px){
       .guestbook-shell{grid-template-columns:1fr}
       .guestbook-form{position:relative;top:auto}
@@ -1075,7 +1168,6 @@
       <nav class="nav">
         <a href="#jonathan">Jonathan</a>
         <a href="#uma">Uma Zone</a>
-        <a href="#grupo">El grupo</a>
         <a href="#muro">Muro</a>
         <a href="#frases">Palabras</a>
       </nav>
@@ -1119,8 +1211,8 @@
           <h2>¿Por qué queremos tanto a Azucar?</h2>
         </div>
         <p class="section-note">
-          No hace falta inventar una historia enorme: alcanza con las cosas que hace
-          todos los días y que terminan haciendo mejor al grupo.
+          Siempre está, habla con todos, tira frases imposibles y hace que el grupo
+          tenga movimiento incluso cuando no pasa nada.
         </p>
       </div>
 
@@ -1135,7 +1227,7 @@
           </p>
 
           <div class="quote-box">
-            “Esta página va a crecer igual que crecen las frases, dibujos y recuerdos del grupo.”
+            AZUCAR BUFF ★ +999 charla · +999 energía · +∞ frases
           </div>
         </article>
 
@@ -1167,8 +1259,7 @@
           <h2>Uma Zone ★</h2>
         </div>
         <p class="section-note">
-          La parte más caótica y alegre de la página: GIFs de Umamusume para que
-          tenga el ritmo y la energía que queríamos desde el principio.
+          Umamusume, caos, memes y energía Azucar. Exactamente como corresponde.
         </p>
       </div>
 
@@ -1200,31 +1291,20 @@
           </video>
           <div class="tag"><b>UMA #10</b><span>🔥 Suzuka mode</span></div>
         </article>
-      </div>
 
-      <div class="update-banner">
-        <div class="update-icon">↻</div>
-        <div>
-          <strong>Esta página está hecha para actualizarse.</strong>
-          Cuando lleguen más GIFs, dibujos, frases o recuerdos, se agregan acá sin
-          cambiar la idea principal.
-        </div>
-      </div>
-    </section>
+        <article class="media-card">
+          <img src="assets/aura-moment.png" alt="Momento Aura del grupo">
+          <div class="tag"><b>AURA MOMENT</b><span>del grupo ★</span></div>
+        </article>
 
-    <section class="block" id="grupo">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Friend Support Cards</div>
-          <h2>El grupo para Azucar</h2>
-        </div>
-        <p class="section-note">
-          Acá va a entrar cada integrante con su propio dibujo y una frase para
-          Jonathan. Ya dejé la estructura lista.
-        </p>
+        <article class="media-card">
+          <video autoplay loop muted playsinline controls>
+            <source src="https://static.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/89/6e/rW2auHU9EUazoiRMqZ.mp4" type="video/mp4">
+            <source src="https://images-ext-1.discordapp.net/external/ngY2juJYT_guQ3JGiNAlQZgqhHEG9Fh7uPUYA1ulLWo/https/static.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/89/6e/rW2auHU9EUazoiRMqZ.mp4" type="video/mp4">
+          </video>
+          <div class="tag"><b>ALFA / BETA</b><span>línea temporal ✦</span></div>
+        </article>
       </div>
-
-      <div class="members" id="members"></div>
     </section>
 
     <section class="block" id="frases">
@@ -1234,9 +1314,8 @@
           <h2>Palabras y frases</h2>
         </div>
         <p class="section-note">
-          Como inventa palabras y frases, esta sección puede terminar siendo un
-          diccionario entero del grupo. No puse frases falsas: las completamos con
-          las verdaderas cuando me las pases.
+          Algunas de esas frases que salen de la nada y después quedan para siempre
+          en el idioma del grupo.
         </p>
       </div>
 
@@ -1244,17 +1323,17 @@
         <article class="lab-card">
           <div class="lab-title">AZUCAR<br>DICTIONARY</div>
           <p style="line-height:1.6;font-weight:750">
-            Un archivo de esas palabras, expresiones y frases que aparecen de la
-            nada y después todo el grupo termina usando.
+            El archivo oficial de las palabras, teorías y frases que Azucar convirtió
+            en patrimonio del grupo.
           </p>
         </article>
 
         <article class="panel">
-          <h3>Entradas pendientes ✎</h3>
+          <h3>Frases inmortales ★</h3>
           <div class="empty-phrases">
-            <div class="empty-phrase">01 · Próxima palabra inventada por Azucar</div>
-            <div class="empty-phrase">02 · Próxima frase histórica del grupo</div>
-            <div class="empty-phrase">03 · Próximo momento que necesite quedar guardado</div>
+            <div class="empty-phrase">01 · «Espejo rebotín.»</div>
+            <div class="empty-phrase">02 · «F que te viola jose el negro jajaja.»</div>
+            <div class="empty-phrase">03 · «No pasara porque justamente manipule las fluctuaciones espacio temporales de las lineas alfa y beta provocando que tu sed de venganza se convierta en sed de comer yupis, causando que no intentaras nada peligroso y solo te la pasarias comiendo yupis en todas las dimensiones y lineas de tiempo existentes.»</div>
           </div>
         </article>
       </div>
@@ -1268,8 +1347,8 @@
           <h2>Dejá algo para Azucar ♥</h2>
         </div>
         <p class="section-note">
-          Este muro se alimenta directamente desde GitHub. Cada aporte queda guardado
-          en el repositorio y aparece acá como una tarjeta para Jonathan.
+          El rincón del grupo para dejarle a Jonathan mensajes, dibujos, GIFs y
+          cualquier locura que merezca quedar guardada.
         </p>
       </div>
 
@@ -1277,8 +1356,8 @@
         <form class="guestbook-form" id="azucarForm">
           <h3>💌 Nuevo mensaje</h3>
           <p class="helper">
-            Escribí tu nombre y tu mensaje. Al continuar se abre GitHub con todo
-            rellenado para que confirmes la publicación.
+            Escribí tu nombre y dejale algo a Azucar. Después podés sumar un dibujo,
+            imagen o GIF.
           </p>
 
           <div class="form-row">
@@ -1295,8 +1374,8 @@
 
           <div class="upload-hint">
             🎨 <strong>¿Querés agregar un dibujo o imagen?</strong><br>
-            Después de tocar el botón se abre GitHub. Ahí podés arrastrar, pegar
-            o elegir tu imagen antes de publicar el mensaje.
+            Al continuar se abre GitHub para que puedas arrastrar, pegar o elegir
+            tu imagen antes de publicar.
           </div>
 
           <button class="submit-post" type="submit" id="submitPost">
@@ -1309,8 +1388,7 @@
           </div>
 
           <p class="github-note">
-            Para publicar hace falta iniciar sesión en GitHub. No se usan contraseñas,
-            tokens ni una base de datos externa en esta web.
+            Para publicar necesitás una cuenta de GitHub.
           </p>
         </form>
 
@@ -1324,44 +1402,40 @@
           </div>
         </div>
       </div>
+
+      <div class="community-gallery-block">
+        <div class="community-gallery-top">
+          <div>
+            <div class="eyebrow">Fan Art / Community Gallery</div>
+            <h3>🎨 Dibujos y GIFs del grupo</h3>
+          </div>
+          <p>
+            Los dibujos, imágenes, GIFs y videos del grupo quedan reunidos acá.
+          </p>
+        </div>
+        <div class="community-gallery" id="communityGallery">
+          <div class="wall-loading">Cargando dibujos del grupo...</div>
+        </div>
+      </div>
+
     </section>
 
     <section class="final">
       <img class="final-logo" src="assets/team-azucar-logo.png" alt="Team Azucar">
       <div class="big-love">JONATHAN,<br>TE AMAMOS ♥</div>
       <p>
-        De parte de todo el grupo. Esta no es la versión final: es el comienzo.
-        La vamos a llenar con dibujos, frases, páginas de cada integrante y todo
-        lo que todavía falta crear para vos.
+        De parte de todo el grupo: gracias por estar, hablar con todos, inventar
+        cosas inolvidables y darle vida al chat. Esta página es para vos. ♥
       </p>
     </section>
 
     <footer>
-      TEAM AZUCAR · friendship support card · página en actualización permanente ★
+      TEAM AZUCAR · JONATHAN SUPPORT CLUB · 2026 ★
     </footer>
   </main>
 
   <script src="data.js"></script>
   <script>
-    // Render de las futuras tarjetas de integrantes.
-    const members = document.getElementById("members");
-    integrantes.forEach(persona => {
-      const card = document.createElement("article");
-      card.className = "member";
-
-      const art = persona.imagen
-        ? `<img src="${persona.imagen}" alt="Dibujo de ${persona.nombre} para Azucar">`
-        : `<div class="placeholder">✎</div>`;
-
-      card.innerHTML = `
-        <div class="member-art">${art}</div>
-        <div class="member-copy">
-          <small>${persona.detalle}</small>
-          <h3>${persona.nombre}</h3>
-          <p>${persona.frase}</p>
-        </div>`;
-      members.appendChild(card);
-    });
 
     // Brillitos flotantes.
     const sparkles = document.getElementById("sparkles");
@@ -1433,13 +1507,13 @@
     if(repoInfo){
       repoStatus.classList.add("ok");
       repoStatus.innerHTML =
-        `<span class="repo-dot"></span><span>Conectado a <strong>${repoInfo.full}</strong></span>`;
+        `<span class="repo-dot"></span><span>Muro conectado ✓</span>`;
     }else{
       submitPost.disabled = true;
       submitPost.style.opacity = ".55";
       repoStatus.innerHTML =
         `<span class="repo-dot"></span><span>
-          El muro se activa automáticamente cuando esta carpeta se publica con GitHub Pages.
+          El muro está disponible en la página publicada.
         </span>`;
     }
 
@@ -1591,89 +1665,87 @@
           el.alt = `${altPrefix} ${index + 1}`;
           el.src = item.src;
         }
-        el.onerror = () => el.remove();
+        if(item.type === "image"){
+          el.onerror = () => {
+            if(/github\.com\/user-attachments\/assets\//i.test(item.src)){
+              const video = document.createElement("video");
+              video.controls = true;
+              video.muted = true;
+              video.loop = true;
+              video.playsInline = true;
+              video.preload = "metadata";
+              video.src = item.src;
+              video.className = el.className;
+              el.replaceWith(video);
+            }else{
+              el.remove();
+            }
+          };
+        }else{
+          el.onerror = () => el.remove();
+        }
         media.appendChild(el);
       });
 
       container.appendChild(media);
     }
 
-    async function appendReplies(issue, card){
-      if(!repoInfo || !issue.comments) return;
+    function appendReplies(issue, card){
+      const comments = Array.isArray(issue.replies) ? issue.replies : [];
+      if(!comments.length) return;
 
-      try{
-        const url =
-          `https://api.github.com/repos/${repoInfo.full}/issues/${issue.number}/comments` +
-          `?per_page=100`;
+      const box = document.createElement("div");
+      box.className = "wall-replies";
 
-        const response = await fetch(url, {
-          cache:"no-store",
-          headers:{
-            "Accept":"application/vnd.github+json",
-            "X-GitHub-Api-Version":"2022-11-28"
-          }
-        });
-        if(!response.ok) return;
+      const title = document.createElement("div");
+      title.className = "wall-replies-title";
+      title.textContent =
+        `${comments.length} ${comments.length === 1 ? "respuesta" : "respuestas"} del grupo`;
+      box.appendChild(title);
 
-        const comments = await response.json();
-        if(!comments.length) return;
+      comments.forEach(comment => {
+        const reply = document.createElement("div");
+        reply.className = "wall-reply";
 
-        const box = document.createElement("div");
-        box.className = "wall-replies";
+        const head = document.createElement("div");
+        head.className = "wall-reply-head";
 
-        const title = document.createElement("div");
-        title.className = "wall-replies-title";
-        title.textContent =
-          `${comments.length} ${comments.length === 1 ? "respuesta" : "respuestas"} del grupo`;
-        box.appendChild(title);
+        const avatar = document.createElement("img");
+        avatar.loading = "lazy";
+        avatar.src = comment.user?.avatar_url || "";
+        avatar.alt = "";
 
-        comments.forEach(comment => {
-          const reply = document.createElement("div");
-          reply.className = "wall-reply";
+        const info = document.createElement("span");
+        info.textContent =
+          `@${comment.user?.login || "github"} · ${formatDate(comment.created_at)}`;
 
-          const head = document.createElement("div");
-          head.className = "wall-reply-head";
+        head.append(avatar, info);
+        reply.appendChild(head);
 
-          const avatar = document.createElement("img");
-          avatar.loading = "lazy";
-          avatar.src = comment.user?.avatar_url || "";
-          avatar.alt = "";
+        const plain = stripMediaMarkup(comment.body);
+        if(plain){
+          const p = document.createElement("p");
+          p.className = "wall-reply-text";
+          p.textContent = plain;
+          reply.appendChild(p);
+        }
 
-          const info = document.createElement("span");
-          info.textContent =
-            `@${comment.user?.login || "github"} · ${formatDate(comment.created_at)}`;
+        appendMedia(reply, extractMedia(comment.body), "Adjunto de respuesta");
 
-          head.append(avatar, info);
-          reply.appendChild(head);
+        const r = comment.reactions || {};
+        if(r.total_count){
+          const small = document.createElement("div");
+          small.className = "wall-meta";
+          small.textContent =
+            `Reacciones: ${r.total_count} · ♥ ${r.heart || 0} · 👍 ${r["+1"] || 0}`;
+          reply.appendChild(small);
+        }
 
-          const plain = stripMediaMarkup(comment.body);
-          if(plain){
-            const p = document.createElement("p");
-            p.className = "wall-reply-text";
-            p.textContent = plain;
-            reply.appendChild(p);
-          }
+        box.appendChild(reply);
+      });
 
-          appendMedia(reply, extractMedia(comment.body), "Adjunto de respuesta");
-
-          const r = comment.reactions || {};
-          if(r.total_count){
-            const small = document.createElement("div");
-            small.className = "wall-meta";
-            small.textContent =
-              `Reacciones: ${r.total_count} · ♥ ${r.heart || 0} · 👍 ${r["+1"] || 0}`;
-            reply.appendChild(small);
-          }
-
-          box.appendChild(reply);
-        });
-
-        // Las respuestas aparecen antes del pie/botones de la tarjeta.
-        const foot = card.querySelector(".wall-card-foot");
-        card.insertBefore(box, foot || null);
-      }catch{
-        // Si GitHub limita una consulta, el mensaje principal sigue funcionando.
-      }
+      const foot = card.querySelector(".wall-card-foot");
+      card.insertBefore(box, foot || null);
     }
 
     function makeWallCard(issue){
@@ -1737,8 +1809,8 @@
       like.href = issue.html_url;
       like.target = "_blank";
       like.rel = "noopener noreferrer";
-      like.textContent = "♥ REACCIONAR EN GITHUB (SE GUARDA)";
-      like.title = "La reacción se guarda en GitHub y luego aparece en este muro.";
+      like.textContent = "♥ DAR CORAZÓN";
+      like.title = "Abrí el mensaje y dejá un corazón en GitHub.";
 
       const reply = document.createElement("a");
       reply.className = "wall-action";
@@ -1753,7 +1825,7 @@
       const help = document.createElement("div");
       help.className = "reaction-help";
       help.textContent =
-        "Para que el ♥ sea global y quede guardado: abrí GitHub, tocá «Add reaction» y elegí ❤️. Después volvé y tocá «Actualizar muro».";
+        "Se abre el mensaje en GitHub: tocá «Add reaction» → ❤️ y después volvé al muro.";
       foot.appendChild(help);
 
       card.appendChild(foot);
@@ -1765,59 +1837,122 @@
     }
 
 
-    async function loadAzucarWall(){
-      if(!repoInfo){
-        wallCount.textContent = "Muro disponible al publicar en GitHub Pages";
-        wallGrid.innerHTML =
-          `<div class="wall-empty">
-            💚 La página está en modo local.<br>
-            Cuando la subas a GitHub Pages, este muro se conecta solo.
-          </div>`;
+    function renderCommunityGallery(posts){
+      const gallery = document.getElementById("communityGallery");
+      if(!gallery) return;
+
+      const entries = [];
+      const seen = new Set();
+
+      function collect(body, author, url){
+        extractMedia(body).forEach(item => {
+          if(seen.has(item.src)) return;
+          seen.add(item.src);
+          entries.push({ ...item, author, url });
+        });
+      }
+
+      posts.forEach(issue => {
+        const name =
+          issue.title?.replace(/^\[AZUCAR\]\s*/i, "").trim() ||
+          issue.user?.login ||
+          "Amigo de Azucar";
+        collect(issue.body, name, issue.html_url);
+        (issue.replies || []).forEach(reply => {
+          collect(reply.body, reply.user?.login || name, issue.html_url);
+        });
+      });
+
+      gallery.innerHTML = "";
+      if(!entries.length){
+        gallery.innerHTML =
+          `<div class="wall-empty">🎨 Todavía no hay dibujos o GIFs publicados.</div>`;
         return;
       }
 
+      entries.slice(0, 60).forEach((item, index) => {
+        const card = document.createElement("article");
+        card.className = "community-media-card";
+
+        let media;
+        if(item.type === "video"){
+          media = document.createElement("video");
+          media.controls = true;
+          media.muted = true;
+          media.loop = true;
+          media.playsInline = true;
+          media.preload = "metadata";
+        }else{
+          media = document.createElement("img");
+          media.loading = "lazy";
+          media.alt = `Dibujo o GIF del grupo ${index + 1}`;
+        }
+        media.className = "community-media-frame";
+        media.src = item.src;
+
+        if(item.type === "image"){
+          media.onerror = () => {
+            if(/github\.com\/user-attachments\/assets\//i.test(item.src)){
+              const video = document.createElement("video");
+              video.className = "community-media-frame";
+              video.controls = true;
+              video.muted = true;
+              video.loop = true;
+              video.playsInline = true;
+              video.preload = "metadata";
+              video.src = item.src;
+              media.replaceWith(video);
+            }else{
+              card.remove();
+            }
+          };
+        }
+
+        const caption = document.createElement("div");
+        caption.className = "community-media-caption";
+
+        const by = document.createElement("span");
+        by.textContent = `★ ${item.author}`;
+
+        const link = document.createElement("a");
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "ver mensaje ↗";
+
+        caption.append(by, link);
+        card.append(media, caption);
+        gallery.appendChild(card);
+      });
+    }
+
+    async function loadAzucarWall(){
       refreshWall.disabled = true;
       wallCount.textContent = "Actualizando mensajes...";
-      wallGrid.innerHTML =
-        `<div class="wall-loading">🏁 Buscando mensajes del grupo...</div>`;
 
       try{
-        const api =
-          `https://api.github.com/repos/${repoInfo.full}/issues` +
-          `?state=open&per_page=100&sort=created&direction=desc`;
-
-        const response = await fetch(api, {
-          cache:"no-store",
-          headers:{
-            "Accept":"application/vnd.github+json",
-            "X-GitHub-Api-Version":"2022-11-28"
-          }
+        // IMPORTANTE: ya no consultamos api.github.com desde cada visitante.
+        // GitHub Actions genera este JSON en el repositorio y GitHub Pages lo sirve
+        // como un archivo estático, por eso no existe el límite de 60 consultas/hora.
+        const response = await fetch(`data/community.json?v=${Date.now()}`, {
+          cache:"no-store"
         });
 
         if(!response.ok){
-          if(response.status === 404){
-            throw new Error(
-              "No pude leer los Issues. Revisá que el repositorio sea público y tenga Issues activados."
-            );
-          }
-          if(response.status === 403){
-            throw new Error(
-              "GitHub limitó temporalmente las consultas. Probá de nuevo en unos minutos."
-            );
-          }
-          throw new Error(`GitHub respondió con el código ${response.status}.`);
+          throw new Error(
+            "El muro todavía se está preparando. Probá de nuevo en un momento."
+          );
         }
 
-        const allIssues = await response.json();
-        const posts = allIssues.filter(issue =>
-          !issue.pull_request &&
-          typeof issue.title === "string" &&
-          issue.title.toUpperCase().startsWith(AZUCAR_PREFIX)
-        );
+        const payload = await response.json();
+        const posts = Array.isArray(payload.posts) ? payload.posts : [];
 
         wallGrid.innerHTML = "";
-        wallCount.textContent =
-          `${posts.length} ${posts.length === 1 ? "mensaje" : "mensajes"} para Azucar`;
+        wallCount.innerHTML =
+          `${posts.length} ${posts.length === 1 ? "mensaje" : "mensajes"} para Azucar` +
+          (payload.generated_at
+            ? `<div class="wall-sync-note">Sincronizado: ${formatDate(payload.generated_at)}</div>`
+            : "");
 
         if(!posts.length){
           wallGrid.innerHTML =
@@ -1825,12 +1960,14 @@
               ✨ Todavía no hay mensajes publicados.<br>
               ¡El primero puede ser el tuyo!
             </div>`;
+          renderCommunityGallery([]);
           return;
         }
 
         posts.forEach(issue => wallGrid.appendChild(makeWallCard(issue)));
+        renderCommunityGallery(posts);
       }catch(error){
-        wallCount.textContent = "No se pudo cargar el muro";
+        wallCount.textContent = "El muro está descansando un momento";
         wallGrid.innerHTML = "";
         const box = document.createElement("div");
         box.className = "wall-error";
@@ -1843,7 +1980,9 @@
 
     refreshWall.addEventListener("click", loadAzucarWall);
     loadAzucarWall();
-    setInterval(loadAzucarWall, 300000);
+    // Es un archivo estático servido por GitHub Pages: actualizar cada 2 minutos
+    // no consume el límite de la API de GitHub.
+    setInterval(loadAzucarWall, 120000);
 
 
     const loveButton=document.getElementById("loveButton");
